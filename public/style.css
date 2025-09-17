@@ -1,0 +1,318 @@
+/* style.css - تصميم متطور لتطبيق المهام مع وضع الظلام */
+
+/* التصميم العام */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', 'Cairo', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --primary-color: #8A2BE2;
+  --secondary-color: #9370DB;
+  --accent-color: #20B2AA;
+  --dark-bg: #121212;
+  --dark-card: #1E1E1E;
+  --dark-text: #E0E0E0;
+  --dark-border: #333;
+  --dark-hover: #2D2D2D;
+}
+
+body {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: var(--dark-text);
+}
+
+.app-container {
+  background-color: var(--dark-card);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 500px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* تنسيق قسم المصادقة */
+#authSection {
+  padding: 30px;
+}
+
+#authSection h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 28px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 25px;
+  border-bottom: 2px solid var(--dark-border);
+  border-radius: 4px;
+}
+
+.tab {
+  flex: 1;
+  padding: 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 600;
+  color: #888;
+  transition: all 0.3s ease;
+}
+
+.tab.active {
+  color: var(--primary-color);
+  border-bottom: 3px solid var(--primary-color);
+  background: rgba(138, 43, 226, 0.1);
+}
+
+.tab:hover {
+  background: rgba(138, 43, 226, 0.15);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form input {
+  padding: 16px;
+  border: 1px solid var(--dark-border);
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.3s;
+  background-color: #2D2D2D;
+  color: var(--dark-text);
+}
+
+.form input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.3);
+}
+
+.form input::placeholder {
+  color: #888;
+}
+
+.form button {
+  padding: 16px;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.hidden {
+  display: none;
+}
+
+/* تنسيق قسم المهام */
+#todoSection {
+  padding: 30px;
+}
+
+#todoSection h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 32px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+#todoForm {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+#todoInput {
+  flex: 1;
+  padding: 16px;
+  border: 1px solid var(--dark-border);
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #2D2D2D;
+  color: var(--dark-text);
+}
+
+#todoInput:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(32, 178, 170, 0.3);
+}
+
+#todoForm button {
+  padding: 16px 22px;
+  background: linear-gradient(to right, var(--accent-color), #2EE8D9);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#todoForm button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+#todoList {
+  list-style-type: none;
+  margin-bottom: 30px;
+}
+
+#todoList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+  background-color: #2D2D2D;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-left: 4px solid var(--primary-color);
+}
+
+#todoList li:hover {
+  background-color: #333;
+  transform: translateX(-5px);
+}
+
+#todoList li.completed {
+  text-decoration: line-through;
+  color: #888;
+  border-left: 4px solid var(--accent-color);
+}
+
+#todoList li button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 8px;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+  color: #ff4757;
+}
+
+#todoList li button:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+#logoutBtn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(to right, #ff4757, #ff6b81);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#logoutBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/* تصميم متجاوب للشاشات الصغيرة */
+@media (max-width: 580px) {
+  .app-container {
+    border-radius: 12px;
+  }
+  
+  #authSection, #todoSection {
+    padding: 20px;
+  }
+  
+  .form input, .form button, #todoInput, #todoForm button {
+    padding: 14px;
+  }
+  
+  #todoSection h1 {
+    font-size: 28px;
+  }
+}
+
+/* تأثيرات إضافية */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  background: var(--dark-card);
+  color: var(--dark-text);
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transform: translateX(150%);
+  transition: transform 0.4s ease;
+  z-index: 1000;
+  border-right: 4px solid var(--primary-color);
+}
+
+.notification.show {
+  transform: translateX(0);
+}
+
+.task-count {
+  text-align: center;
+  margin-bottom: 15px;
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+/* تأثيرات للوحة */
+.app-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* تخصيص شريط التمرير */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
